@@ -1,27 +1,8 @@
 import Link from 'next/link'
-import { formatDate } from '../projects/utils'
+import { getProjects, formatDate } from '../projects/utils'
 
 export function ProjectsList() {
-    let allProjects = [
-        {
-            metadata: {
-                title: 'Project1',
-                startedAt: 'March 30, 2026',
-                finishedAt: 'Present'
-            },
-            slug: 'project1',
-            content: ''
-        },
-        {
-            metadata: {
-                title: 'Project2',
-                startedAt: 'April 10, 2026',
-                finishedAt: 'Present'
-            },
-            slug: 'project2',
-            content: ''
-        },
-    ]
+    let allProjects = getProjects()
 
     return (
     <div>
@@ -38,10 +19,10 @@ export function ProjectsList() {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+            href={`/${post.slug}`}
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
+              <p className="text-neutral-600 dark:text-neutral-100 w-[120px] tabular-nums">
                 {formatDate(post.metadata.startedAt, false)}
               </p>
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
