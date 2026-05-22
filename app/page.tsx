@@ -12,7 +12,7 @@ export default function Home() {
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Build the invisible currents beneath modern systems <br />
-            where signals scatter, converge, and endure. <br />
+            Where signals scatter, converge, and endure. <br />
             Between machines and language, <br />
             Shape order from blur and uncertainty. 
           </p>
