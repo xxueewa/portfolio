@@ -29,7 +29,6 @@ The retrieval strategies include:
 
 ### STS Service
 The Speech-To-Speech design provides continuous audio interactions in one user session, and is complemented by text input and summay, aiming to seamless user experience in tight, high pressure scenario. 
-![STS websocket tracing](/aiassistant_sts.png)
 
 ### Multi-Agent Service
 Built on OpenAI’s LLM foundation, the agent graph extends reasoning with search, retrieval, and offline feedback workflows.
