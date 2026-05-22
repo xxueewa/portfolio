@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ProjectsList } from "./components/posts"
 
 export default function Home() {
   return (
@@ -10,16 +11,15 @@ export default function Home() {
             My Portfolio
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            I build the invisible currents beneath modern systems <br />
+            Build the invisible currents beneath modern systems <br />
             where signals scatter, converge, and endure. <br />
             Between machines and language, <br />
-            I shape order from blur and uncertainty. <br />
-            To me, code is art.
+            Shape order from blur and uncertainty. 
           </p>
-    
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <></>
+        <br />
+        <div className="my-8">
+          <ProjectsList />
         </div>
       </main>
     </div>

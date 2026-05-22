@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 function ArrowIcon() {
   return (
     <svg
@@ -17,7 +19,7 @@ function ArrowIcon() {
 
 export function Footer() {
   return (
-    <footer className="mb-16 dark:bg-black">
+    <footer className="-mt-32 mb-16 dark:bg-black">
       <ul className="font-sm mt-8 flex flex-col text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
         <li>
           <a
@@ -40,6 +42,15 @@ export function Footer() {
             <ArrowIcon />
             <p className="ml-2 h-7">github</p>
           </a>
+        </li>
+        <li>
+          <Link
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            href="/projects"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">posts</p>
+          </Link>
         </li>
       </ul>
       <p className="mt-8 text-neutral-600 dark:text-neutral-300">
