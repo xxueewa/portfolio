@@ -1,6 +1,9 @@
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type PageProps from 'next'
 import { getProjectBySlug, getProjects, formatDate } from '../projects/utils'
+
+const IMAGE_RE = /^!\[([^\]]*)\]\(([^)]+)\)$/
 
 export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }))
@@ -17,6 +20,14 @@ function renderMarkdown(content: string) {
     if (line.startsWith('# ')) {
       return <h1 key={i} className="text-2xl font-bold mt-8 mb-2">{line.slice(2)}</h1>
     }
+    const imgMatch = line.match(IMAGE_RE)
+    if (imgMatch) {
+      return (
+        <div key={i} className="my-4 relative w-full">
+          <Image src={imgMatch[2]} alt={imgMatch[1]} width={800} height={450} className="w-full h-auto rounded" />
+        </div>
+      )
+    }
     if (line.trim() === '') {
       return <br key={i} />
     }
@@ -24,7 +35,7 @@ function renderMarkdown(content: string) {
   })
 }
 
-export default async function Page(props: PageProps<'/blog/[slug]'>) {
+export default async function Page(props: PageProps<'/[slug]'>) {
   const { slug } = await props.params
   const project = getProjectBySlug(slug)
 
@@ -33,7 +44,7 @@ export default async function Page(props: PageProps<'/blog/[slug]'>) {
   }
 
   return (
-    <section>
+    <section className="pb-32">
       <h1 className="font-semibold text-2xl tracking-tighter">{project.metadata.title}</h1>
       <div className="flex gap-4 mt-2 mb-8 text-sm text-zinc-500 dark:text-zinc-400">
         <span>{formatDate(project.metadata.startedAt)}</span>
