@@ -15,12 +15,19 @@ Topics: MultiModal, LLM, LangGraph, WebSocket, STS, RAG
 - System Tracing and Performance Monitor
 
 ### Agent Performance
-- **88%** tool calling accuracy (LangGraph Experiment Results)
-- over 90% intention detection correctness (human evaluation)
-- less than 10s latency on average, plus streaming responses
+- Tool Calling:
+    1. Code evaluator: **88%** tool selection accuracy
+    2. LLM-as-a-Judge: **100%** tool usage accuracy 
+- Correctness:
+    1. LLM-as-a-Judge: **80%** correctness
+- Latency:
+    1. P50: ~10s latency on average
 
-![experiment](https://res.cloudinary.com/de3ww4ssm/image/upload/v1779763464/experiment_zll1lj.png)
-[experiment dashboard]
+![experiment01](https://res.cloudinary.com/de3ww4ssm/image/upload/v1779763464/experiment_zll1lj.png)
+[Code Evaluator]
+
+![experiment02](https://res.cloudinary.com/de3ww4ssm/image/upload/v1779780309/tool_selection_llm_fndkt5.png)
+[LLM as a Judge]
 
 ### RAG Service
 Retrieval-Augmented-Generation (RAG) is a classic technology to enable the domain knowldge of AI as need. The service allows user to upload and manage their own domain knowledge, make the assistant understand, listen, and execute, based on user's perference. 
