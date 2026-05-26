@@ -1,12 +1,16 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import type PageProps from 'next'
 import { getProjectBySlug, getProjects, formatDate } from '../projects/utils'
 
 const IMAGE_RE = /^!\[([^\]]*)\]\(([^)]+)\)$/
+const HTML_IMG_RE = /<img[^>]+src="([^"]+)"[^>]*(?:alt="([^"]*)")?[^>]*\/?>/
 
 export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }))
+}
+
+function renderInline(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<span class="font-semibold text-white">$1</span>')
 }
 
 function renderMarkdown(content: string) {
@@ -28,14 +32,22 @@ function renderMarkdown(content: string) {
         </div>
       )
     }
+    const htmlImgMatch = line.match(HTML_IMG_RE)
+    if (htmlImgMatch) {
+      return (
+        <div key={i} className="my-4 relative w-full">
+          <Image src={htmlImgMatch[1]} alt={htmlImgMatch[2] ?? ''} width={800} height={450} className="w-full h-auto rounded" />
+        </div>
+      )
+    }
     if (line.trim() === '') {
       return <br key={i} />
     }
-    return <p key={i} className="text-zinc-600 dark:text-zinc-400 leading-7">{line}</p>
+    return <p key={i} className="text-zinc-600 dark:text-zinc-400 leading-7" dangerouslySetInnerHTML={{ __html: renderInline(line) }} />
   })
 }
 
-export default async function Page(props: PageProps<'/[slug]'>) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const { slug } = await props.params
   const project = getProjectBySlug(slug)
 
