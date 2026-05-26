@@ -15,9 +15,12 @@ Topics: MultiModal, LLM, LangGraph, WebSocket, STS, RAG
 - System Tracing and Performance Monitor
 
 The current assistant achieved roughly:
-- 100% tool calling accuracy
-- over 90% intention detection correctness
+- 88% tool calling accuracy (LangGraph Experiment Results)
+- over 90% intention detection correctness (human evaluation)
 - less than 10s latency on average, plus streaming responses
+
+<img width="928" height="321" alt="image" src="https://github.com/user-attachments/assets/9f41c525-997b-4fdf-82b3-0a849719a933" />
+
 
 ### RAG Service
 Retrieval-Augmented-Generation (RAG) is a classic technology to enable the domain knowldge of AI as need. The service allows user to upload and manage their own domain knowledge, make the assistant understand, listen, and execute, based on user's perference. 
