@@ -19,7 +19,7 @@ The current assistant achieved roughly:
 - over 90% intention detection correctness (human evaluation)
 - less than 10s latency on average, plus streaming responses
 
-<img width="928" height="321" alt="image" src="https://github.com/user-attachments/assets/9f41c525-997b-4fdf-82b3-0a849719a933" />
+![experiment](https://res.cloudinary.com/de3ww4ssm/image/upload/v1779763464/experiment_zll1lj.png)
 
 
 ### RAG Service
