@@ -9,6 +9,10 @@ export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }))
 }
 
+function renderInline(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<span class="font-semibold text-white">$1</span>')
+}
+
 function renderMarkdown(content: string) {
   return content.split('\n').map((line, i) => {
     if (line.startsWith('### ')) {
@@ -39,7 +43,7 @@ function renderMarkdown(content: string) {
     if (line.trim() === '') {
       return <br key={i} />
     }
-    return <p key={i} className="text-zinc-600 dark:text-zinc-400 leading-7">{line}</p>
+    return <p key={i} className="text-zinc-600 dark:text-zinc-400 leading-7" dangerouslySetInnerHTML={{ __html: renderInline(line) }} />
   })
 }
 
