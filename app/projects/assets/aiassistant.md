@@ -1,5 +1,5 @@
 ---
-title: BizTrip Assistant
+title: BizTrip Assistant - LLM-Based Artificial Intelligence Application
 startedAt: 2026-03-10T00:00:00
 finishedAt: 
 summary: During the tight schedule of business travel, user probably moves between the airport, train station, and subway station. It is not convenient for them to type the questions and read the answer, providing the STS interaction ease the difficulties of interacting with AI assistant, and get the task done efficiently. 
