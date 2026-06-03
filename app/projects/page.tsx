@@ -1,4 +1,5 @@
 import { ProjectsList } from '../components/posts'
+import { Footer } from '../components/footer'
 
 export const metadata = {
   title: 'Project Posts',
@@ -16,6 +17,7 @@ export default function Page() {
         <div className="my-8">
           <ProjectsList />
         </div>
+        <Footer />
       </main>
     </div>
   )

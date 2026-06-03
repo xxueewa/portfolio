@@ -1,11 +1,12 @@
 ---
-title: BizTrip Assistant
+title: BizTrip Assistant - LLM-Based Artificial Intelligence Application
 startedAt: 2026-03-10T00:00:00
 finishedAt: 
 summary: During the tight schedule of business travel, user probably moves between the airport, train station, and subway station. It is not convenient for them to type the questions and read the answer, providing the STS interaction ease the difficulties of interacting with AI assistant, and get the task done efficiently. 
+github: https://github.com/xxueewa/aiassistantwithtracing
 ---
 
-Topics: MultiModal, LLM, LangGraph, WebSocket, STS, RAG 
+**Topics: MultiModal-Model, Large-Langrage-Model, LangGraph, WebSocket, Speech-To-Speech, Retrieval-Augmented-Generation**
 
 ## Version 1.0 Intro
 - Audio & Text Interaction on Mobile App
@@ -17,7 +18,7 @@ Topics: MultiModal, LLM, LangGraph, WebSocket, STS, RAG
 ### Agent Performance
 - Tool Calling:
     1. Code evaluator: **88%** tool selection accuracy
-    2. LLM-as-a-Judge: **100%** tool usage accuracy 
+    2. LLM-as-a-Judge: evaluate the tool usage reasoning result
 - Correctness:
     1. LLM-as-a-Judge: **80%** correctness
 - Latency:

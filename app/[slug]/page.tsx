@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getProjectBySlug, getProjects, formatDate } from '../projects/utils'
+import { Footer } from '../components/footer'
 
 const IMAGE_RE = /^!\[([^\]]*)\]\(([^)]+)\)$/
 const HTML_IMG_RE = /<img[^>]+src="([^"]+)"[^>]*(?:alt="([^"]*)")?[^>]*\/?>/
@@ -43,7 +44,7 @@ function renderMarkdown(content: string) {
     if (line.trim() === '') {
       return <br key={i} />
     }
-    return <p key={i} className="text-zinc-600 dark:text-zinc-400 leading-7" dangerouslySetInnerHTML={{ __html: renderInline(line) }} />
+    return <p key={i} className="text-zinc-100 dark:text-zinc-300 leading-7 font-medium" dangerouslySetInnerHTML={{ __html: renderInline(line) }} />
   })
 }
 
@@ -64,11 +65,12 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
         <span>{project.metadata.finishedAt ? formatDate(project.metadata.finishedAt) : 'Present'}</span>
       </div>
       {project.metadata.summary && (
-        <p className="mb-8 text-zinc-600 dark:text-zinc-400">{project.metadata.summary}</p>
+        <p className="mb-8 text-zinc-100 dark:text-zinc-300">{project.metadata.summary}</p>
       )}
       <article className="prose">
         {renderMarkdown(project.content)}
       </article>
+      <Footer githubHref={project.metadata.github} />
     </section>
   )
 }
