@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ProjectsList } from "./components/posts"
+import { Footer } from "./components/footer"
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <div className="my-8">
           <ProjectsList />
         </div>
+        <Footer />
       </main>
     </div>
   );

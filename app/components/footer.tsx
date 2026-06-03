@@ -17,9 +17,9 @@ function ArrowIcon() {
   )
 }
 
-export function Footer() {
+export function Footer({ githubHref }: { githubHref?: string }) {
   return (
-    <footer className="-mt-32 mb-16 dark:bg-black">
+    <footer className="mt-16 mb-16 dark:bg-black">
       <ul className="font-sm mt-8 flex flex-col text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
         <li>
           <a
@@ -37,7 +37,7 @@ export function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/xxueewa"
+            href={githubHref ?? "https://github.com/xxueewa"}
           >
             <ArrowIcon />
             <p className="ml-2 h-7">github</p>
