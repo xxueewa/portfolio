@@ -25,3 +25,5 @@ Overall, the end-to-end latency is about 220ms, which is acceptable.
 In this system, the data will be store in both online and offline feature stores, where online store serves the inference, and offline features will be used in the model training and iteration. However, the data stored in these two storages could be different, and might cause the split-brain problem. 
 
 In computing, split-brain is a state indicating data or availability inconsistencies originating from the maintenance of two separate data sets with overlap in scope, either because of servers in a network design, or a failure condition based on servers not communicating and synchronizing their data to each other. (Wikipedia)
+
+To solve the problem and achieve data consistency, I introduced the intermediate kafka topic: user.assessment.feature as the point of truth, allowing the storage services to apply retry/audit on the data stream, and to fix inconsistencies caused by network glitch or server crashes. 

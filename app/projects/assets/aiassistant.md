@@ -18,7 +18,7 @@ github: https://github.com/xxueewa/aiassistantwithtracing
 ### Agent Performance
 - Tool Calling:
     1. Code evaluator: **88%** tool selection accuracy
-    2. LLM-as-a-Judge: **100%** tool usage accuracy 
+    2. LLM-as-a-Judge: evaluate the tool usage reasoning result
 - Correctness:
     1. LLM-as-a-Judge: **80%** correctness
 - Latency:
