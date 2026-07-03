@@ -1,13 +1,31 @@
 ---
-title: Adaptive Learning Platform - Real-Time Stream Processing
+title: Adaptive Learning - Machine Learning System Design and Data Mining
 startedAt: 2026-03-28T00:00:00
 finishedAt: 
 summary: The system is meant to support an Online Adaptive Learning Platform, with the real-time processing of user data, the recommendation algorithm is able to provide the most suitable assessment suite based on user's latest feature. 
 github: https://github.com/xxueewa/flinkstreamprocesssvc
 ---
-**Topics: Apache Flink, Spring Boot, Confluent Kafka, AWS, NoSQL, Data Warehouse, Recommendation Algorithm**
+**Topics: Apache Flink, Spring Boot, Confluent Kafka, AWS, NoSQL, Feature Store, Feature Engineering, Bayesian Knowledge Tracing, Neural Networks**
 ## High-Level-Design Diagram
 ![architecture](https://res.cloudinary.com/de3ww4ssm/image/upload/v1780442722/High-Level-Design_q6xgcg.jpg)
+
+## Design Challenges
+### Dynamic Feature Update
+Bayesian Knowledge Tracing is known as a common algorithm to dynamically update user's mastery level of each skill. In this system, it was designed to calculate user's skill on each tag group of questions. The backbone of BKT is hidden markov chain, while processing a sequence of questions-result pairs, it is able to updating the probability of correctness. 
+
+$$P(L_t \mid \text{Correct}) = \frac{P(L_{t-1}) \cdot (1 - P(S))}{P(L_{t-1}) \cdot (1 - P(S)) + (1 - P(L_{t-1})) \cdot P(G)}$$
+
+$$P(L_t \mid \text{Incorrect}) = \frac{P(L_{t-1}) \cdot  P(S)}{P(L_{t-1}) \cdot P(S) + (1 - P(L_{t-1})) \cdot (1-P(G))}$$
+
+$$P(Next Correct) = P(L_{t}) \cdot  (1- P(S)) + (1-P(L_{t})) \cdot P(G)$$
+
+### Algorithm Analysis and Selection
+Typical recommendation approaches fall into two categories: Collaborative Filtering, which leverages patterns across users with similar behavior, and Content-Based Filtering, which matches items to a user's explicit feature profile. 
+
+While tree-based models such as XGBoost are expressive and handle rich feature interactions well, they are computationally prohibitive at serving time — ranking every candidate assessment in a large corpus against a user's feature vector is not feasible under latency constraints. Embedding-based models address this by projecting both users and items into a shared low-dimensional vector space, enabling retrieval via Approximate Nearest Neighbor (ANN) search rather than exhaustive scoring. 
+
+This system adopts a **Two-Tower Network** architecture, a hybrid approach that encodes user features and item features through separate neural towers and produces dense embeddings for each. At serving time, the user embedding is computed once and ANN search retrieves the top-k candidate assessments efficiently — combining the feature richness of content-based models with the scalability of embedding retrieval.
+
 ## Engineering Challenges
 ### End-to-End Latency Optimization
 Imagine the scenario when user submit the assessment and immediately request for a new one, the system is expected to provide the inference result based on the alreay updated user features, therefore, the end-to-end latency of feature extraction workflow is crucial. 

@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2fafb;
+  --foreground: #171615;
+}
+
+@theme {
+  --color-brand-bg: #f2fafb;
+  --color-brand-ink: #171615;
+  --color-brand-coral: #e85a44;
+  --color-brand-amber: #f6ab42;
+  --color-brand-blue: #56a5c5;
 }
 
 @theme inline {
@@ -10,13 +18,6 @@
   --color-foreground: var(--foreground);
   --font-sans: "Courier New", Courier, monospace;
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 @keyframes blink {
