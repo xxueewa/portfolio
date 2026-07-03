@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "katex/dist/katex.min.css";
 import { Navbar } from "./components/nav"
 
 const geistSans = Geist({
@@ -27,13 +28,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={
-        `text-black dark:text-white dark:bg-black
+        `text-brand-ink bg-brand-bg
         ${geistSans.variable}
-        ${geistMono.variable} 
+        ${geistMono.variable}
         h-full antialiased`}
     >
       <body className="antialiased max-w-4xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 dark:bg-black">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           {children}
         </main>
       </body>

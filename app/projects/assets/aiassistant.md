@@ -5,9 +5,7 @@ finishedAt:
 summary: During the tight schedule of business travel, user probably moves between the airport, train station, and subway station. It is not convenient for them to type the questions and read the answer, providing the STS interaction ease the difficulties of interacting with AI assistant, and get the task done efficiently. 
 github: https://github.com/xxueewa/aiassistantwithtracing
 ---
-
 **Topics: MultiModal-Model, Large-Langrage-Model, LangGraph, WebSocket, Speech-To-Speech, Retrieval-Augmented-Generation**
-
 ## Version 1.0 Intro
 - Audio & Text Interaction on Mobile App
 - Intention Detection and Self-Reasoning

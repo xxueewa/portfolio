@@ -19,11 +19,11 @@ function ArrowIcon() {
 
 export function Footer({ githubHref }: { githubHref?: string }) {
   return (
-    <footer className="mt-16 mb-16 dark:bg-black">
-      <ul className="font-sm mt-8 flex flex-col text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+    <footer className="mt-16 mb-16">
+      <ul className="font-sm mt-8 flex flex-col text-brand-ink/60 md:flex-row md:space-x-4 md:space-y-0">
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-brand-ink"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/xueyan-ww/"
@@ -34,7 +34,7 @@ export function Footer({ githubHref }: { githubHref?: string }) {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-brand-ink"
             rel="noopener noreferrer"
             target="_blank"
             href={githubHref ?? "https://github.com/xxueewa"}
@@ -45,7 +45,7 @@ export function Footer({ githubHref }: { githubHref?: string }) {
         </li>
         <li>
           <Link
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-brand-ink"
             href="/projects"
           >
             <ArrowIcon />
@@ -53,7 +53,7 @@ export function Footer({ githubHref }: { githubHref?: string }) {
           </Link>
         </li>
       </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
+      <p className="mt-8 text-brand-ink/60">
         &copy; {new Date().getFullYear()} MIT Licensed
       </p>
     </footer>
