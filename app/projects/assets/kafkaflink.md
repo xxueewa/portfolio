@@ -33,7 +33,7 @@ Imagine the scenario when user submit the assessment and immediately request for
 In the design, I broke down the entire flow into four stages. 
 
 - Stage 1: The producing of user.feature.result, takes around 60ms.
-- Stage 2: The flink data stream processing, including the feature extraction and imdempotent producing of user.assessment.feature events, takes up to 80ms. 
+- Stage 2: The flink data stream processing, including the feature extraction and idempotent producing of user.assessment.feature events, takes up to 80ms. 
 - Stage 3: The consumption of intermediate topic and sink of online feature takes about 30ms. 
 - Stage 4: Once the user request for a new assessment, the online inference takes about 50ms.
 
