@@ -1,5 +1,5 @@
 ---
-title: Adaptive Learning - Machine Learning System Design and Data Mining
+title: Adaptive Learning Platform With Personalized Recommendation
 startedAt: 2026-03-28T00:00:00
 finishedAt: 
 summary: The system is meant to support an Online Adaptive Learning Platform, with the real-time processing of user data, the recommendation algorithm is able to provide the most suitable assessment suite based on user's latest feature. 

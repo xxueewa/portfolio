@@ -8,6 +8,7 @@ type Metadata = {
   summary: string
   image?: string
   github?: string
+  demo?: string
 }
 
 function parseFrontmatter(raw: string): { metadata: Metadata; content: string } {
@@ -34,6 +35,7 @@ function parseFrontmatter(raw: string): { metadata: Metadata; content: string } 
       summary: meta.summary ?? '',
       image: meta.image,
       github: meta.github,
+      demo: meta.demo
     },
     content: match[2],
   }
