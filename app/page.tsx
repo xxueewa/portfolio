@@ -9,7 +9,7 @@ export default function Home() {
       <main className="flex flex-1 w-full max-w-3xl flex-col items-start justify-between py-32">
         <h1>Portfolio</h1>
         <div className="flex flex-col items-start gap-6 text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-brand-ink">
+          <h1 className=" text-3xl font-semibold leading-10 tracking-tight text-brand-ink">
             Hi, I am Xueyan Wang, Evelyn
           </h1>
           <div className="flex gap-2">
